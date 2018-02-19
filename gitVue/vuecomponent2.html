@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="example">
+        <my-component/>
+    </div>
+    <script>
+        var data={message:"hello"};
+        Vue.component("my-component",
+            {
+                template:"<div v-if='message'><input type='text' v-model='message'/><p>{{message}}</p></div><div v-else>world</div>",
+                data:function(){
+                    return data
+                }
+            }
+        )
+        new Vue({
+            el:"#example"
+        })
+    </script>
+</body>
+</html>
